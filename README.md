@@ -18,6 +18,25 @@ sudo apt update && sudo apt upgrade
 
 Jenkins requires Java to run, yet not all Linux distributions include Java by default. Additionally,[not all Java versions are compatible with Jenkins](#supported-java-versions)
 
+
+### Jenkins Long Term Support release
+    A LTS (Long-Term Support) release is chosen every 12 weeks from the stream of regular releases as the stable release for that time period. It can be installed from the debian-stable apt repository.
+
+```bash
+1. sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+2. echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+3. sudo apt-get update
+
+4. sudo apt-get install jenkins
+```
+
+
+
 ### Installation of Java
 
 ```bash
@@ -41,3 +60,12 @@ Jenkins requires Java to run, yet not all Linux distributions include Java by de
 | Java 8                   | 2.60.1                | June 2017              | 2.54                   | April 2017             |
 | Java 7                   | 1.625.1               | October 2015           | 1.612                  | May 2015               |
 
+### verfication
+```bash
+ps -ef | grep jenkins
+```
+### default port && default file path
+```http
+httpPort=8080
+path: /etc/default
+```
